@@ -28,19 +28,17 @@ const companySchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-//hashing the passwd
-
-companySchema.pre("save", async (next) => {
-  if (!this.isModified("password")) return next();
+// Hashing the password
+companySchema.pre("save", async function(next) {
   const generatedSalt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, generatedSalt);
+  next(); 
 });
 
-// creating a method to match the password in future
-
-companySchema.methods.matchPassword = async (enteredPassword) => {
+// Creating a method to match the password in future
+companySchema.methods.matchPassword = async function(enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
-}
+};
 
 const Company = mongoose.model("Company", companySchema);
 export default Company;
