@@ -40,7 +40,6 @@ export default function JobList() {
                     {job.experience}
                   </span>
                   <span className="text-sm text-gray-500">
-                    Posted by: {job.company?.name}
                   </span>
                 </div>
                 <div className="text-sm text-gray-500">
