@@ -3,7 +3,8 @@ import Company from "../models/CompanyModel.js";
 import sendEmail from "../utils/emailService.js";
 
 export const registerCompany = async (req, res) => {
-  const { name, email, password, phone } = req.body;
+  let { name, email, password, phone } = req.body;
+  email = email.toLowerCase(); // Convert email to lowercase
   try {
     const existingCompany = await Company.findOne({ email });
     if (existingCompany)
@@ -19,7 +20,8 @@ export const registerCompany = async (req, res) => {
       { expiresIn: "1h" }
     );
 
-    const verificationLink = `${process.env.CLIENT_URL}/api/auth/verify-email/${company._id}/${verificationToken}`;
+    const verificationLink = `${process.env.CLIENT_URL}/verify-email/${company._id}/${verificationToken}`;
+    console.log(verificationLink);
 
     sendEmail(
       email,
@@ -68,7 +70,8 @@ export const verifyEmail = async (req, res) => {
 };
 
 export const loginCompany = async (req, res) => {
-  const { email, password } = req.body;
+  let { email, password } = req.body;
+  email = email.toLowerCase();
   try {
     const company = await Company.findOne({ email });
     if (!company) return res.status(404).json({ message: "Company not found" });
@@ -82,7 +85,9 @@ export const loginCompany = async (req, res) => {
       expiresIn: "15d",
     });
 
-    res.status(200).json({ message: "logged in successfully", accessToken: token });
+    res
+      .status(200)
+      .json({ message: "logged in successfully", accessToken: token, companyName: company.name, companyObjectId: company._id });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

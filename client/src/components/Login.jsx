@@ -16,8 +16,10 @@ export default function Login() {
     e.preventDefault();
     try {
       const data = await loginCompany(formData);
+      console.log(data);
       localStorage.setItem('token', data.accessToken);
-      localStorage.setItem('company', JSON.stringify(data.company));
+      localStorage.setItem('companyName', data.companyName);
+      localStorage.setItem('companyID', data.companyObjectId);
       setIsAuthenticated(true);
       navigate('/dashboard');
     } catch (err) {

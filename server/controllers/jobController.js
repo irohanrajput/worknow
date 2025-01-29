@@ -3,6 +3,14 @@ import Job from "../models/JobModel.js";
 export const createJob = async (req, res) => {
   const { title, description, experience, endDate } = req.body;
   try {
+    // Check if company is verified
+    if (!req.company.verified) {
+      return res.status(403).json({
+        message:
+          "Only verified companies can create jobs. Please verify your account first.",
+      });
+    }
+
     const job = await Job.create({
       title,
       description,
