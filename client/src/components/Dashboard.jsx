@@ -1,16 +1,18 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { fetchJobs, deleteJob } from "../utils/api";
+import { fetchJobs, deleteJob, sendEmail } from "../utils/api";
 
 export default function Dashboard() {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [deleteLoading, setDeleteLoading] = useState(null);
+  const [sendEmailLoading, setSendEmailLoading] = useState(null);
 
   const loadJobs = async () => {
     try {
       const data = await fetchJobs();
+      console.log(data);
       setJobs(data.jobs);
     } catch (err) {
       setError(err.message);
@@ -35,6 +37,19 @@ export default function Dashboard() {
       setError(err.message);
     } finally {
       setDeleteLoading(null);
+    }
+  };
+
+  const handleSendEmail = async (jobId) => {
+    if (!confirm("Are you sure you want to send email to all candidates?"))
+      return;
+    setSendEmailLoading(jobId);
+    try {
+      await sendEmail(jobId);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setSendEmailLoading(null);
     }
   };
 
@@ -92,7 +107,7 @@ export default function Dashboard() {
                     Deadline
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Applications
+                    Candidates
                   </th>
                   <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Actions
@@ -139,6 +154,12 @@ export default function Dashboard() {
                           }`}
                         >
                           {deleteLoading === job._id ? "Deleting..." : "Delete"}
+                        </button>
+                        <button
+                          className="text-green-600 hover:text-green-900"
+                          onClick={() => handleSendEmail(job._id)}
+                        >
+                          {sendEmailLoading === job._id ? "Sending..." : "Send Email"}
                         </button>
                       </div>
                     </td>

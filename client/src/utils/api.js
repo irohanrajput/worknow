@@ -66,3 +66,18 @@ export const deleteJob = async (jobId) => {
   }
   return response.json();
 };
+
+export const sendEmail = async (jobId) => {
+  const token = localStorage.getItem('token');
+  const response = await fetch(`${BASE_URL}/jobs/${jobId}/send-email`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+    },
+  });
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.message);
+  }
+  return response.json();
+};
