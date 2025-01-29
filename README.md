@@ -3,7 +3,7 @@
 Jobs21 is a comprehensive job portal application that enables companies to post jobs and manage their listings. The platform provides a seamless experience for both employers and job seekers through a modern web interface backed by a robust API.
 
 ## 🔗 Quick Links
-- [API Documentation](./server/README.md)
+- [API Documentation](./server#api-endpoints)
 - [Frontend Dir](./client)
 - [Backend Dir](./server)
 
