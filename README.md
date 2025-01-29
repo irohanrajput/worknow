@@ -3,7 +3,7 @@
 Jobs21 is a comprehensive job portal application that enables companies to post jobs and manage their listings. The platform provides a seamless experience for both employers and job seekers through a modern web interface backed by a robust API.
 
 ## 🔗 Quick Links
-- [API Documentation](./server/README.md)
+- [API Documentation](./server#api-endpoints)
 - [Frontend Dir](./client)
 - [Backend Dir](./server)
 
@@ -61,16 +61,16 @@ cd jobs21
 ```bash
 cd server
 npm install
-cp .env.example .env  # Configure your environment variables
-npm run dev
+cp .env.example .env  # Configure your environment variables(reference given below)
+node server.js
 ```
 
 3. Setup the frontend:
 ```bash
 cd ../client
 npm install
-cp .env.example .env  # Configure your environment variables
-npm start
+cp .env.example .env  # Configure your environment variables(reference given below)
+npm run dev
 ```
 
 4. Open http://localhost:3000 in your browser

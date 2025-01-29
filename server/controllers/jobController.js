@@ -1,7 +1,7 @@
 import Job from "../models/JobModel.js";
 
 export const createJob = async (req, res) => {
-  const { title, description, experience, endDate } = req.body;
+  const { title, description, experience, endDate, candidates } = req.body;
   try {
     // Check if company is verified
     if (!req.company.verified) {
@@ -17,6 +17,7 @@ export const createJob = async (req, res) => {
       experience,
       endDate,
       company: req.company._id,
+      candidates,
     });
     res.status(201).json({ job });
   } catch (error) {
@@ -72,3 +73,5 @@ export const deleteJob = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+

@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { fetchJobs, deleteJob } from '../utils/api';
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { fetchJobs, deleteJob } from "../utils/api";
 
 export default function Dashboard() {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [deleteLoading, setDeleteLoading] = useState(null);
 
   const loadJobs = async () => {
@@ -24,7 +24,7 @@ export default function Dashboard() {
   }, []);
 
   const handleDelete = async (jobId) => {
-    if (!confirm('Are you sure you want to delete this job?')) return;
+    if (!confirm("Are you sure you want to delete this job?")) return;
 
     setDeleteLoading(jobId);
     try {
@@ -38,11 +38,12 @@ export default function Dashboard() {
     }
   };
 
-  if (loading) return (
-    <div className="flex justify-center items-center min-h-screen">
-      <div className="text-center text-gray-600">Loading...</div>
-    </div>
-  );
+  if (loading)
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="text-center text-gray-600">Loading...</div>
+      </div>
+    );
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -132,10 +133,12 @@ export default function Dashboard() {
                           onClick={() => handleDelete(job._id)}
                           disabled={deleteLoading === job._id}
                           className={`text-red-600 hover:text-red-900 ${
-                            deleteLoading === job._id ? 'opacity-50 cursor-not-allowed' : ''
+                            deleteLoading === job._id
+                              ? "opacity-50 cursor-not-allowed"
+                              : ""
                           }`}
                         >
-                          {deleteLoading === job._id ? 'Deleting...' : 'Delete'}
+                          {deleteLoading === job._id ? "Deleting..." : "Delete"}
                         </button>
                       </div>
                     </td>
