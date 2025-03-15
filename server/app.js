@@ -14,7 +14,15 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+
+//root route
+
+app.get("/", (req, res) => {
+  res.status(200).json({ message: "server is up and active" });
+});
+
 // Routes
+
 app.use("/api/auth", authRoutes);
 app.use("/api/jobs", jobRoutes);
 
