@@ -14,12 +14,16 @@ import Dashboard from "./components/Dashboard";
 import EmailVerification from "./components/EmailVerification"; // Add this import
 import { useAuth } from "./context/AuthContext";
 
+
 function PrivateRoute({ children }) {
   const { isAuthenticated } = useAuth();
   return isAuthenticated ? children : <Navigate to="/login" />;
 }
 
 function App() {
+  const BASE_URL = import.meta.env.VITE_API_URL;
+  console.log(BASE_URL);
+
   return (
     <Router>
       <AuthProvider>
