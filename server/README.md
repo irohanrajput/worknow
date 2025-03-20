@@ -1,3 +1,7 @@
+```
+api_url=https://api.test.tushar.wiki/
+```
+
 # Jobs21 - Job Portal Backend API
 
 This is the backend server for Jobs21, a full-stack job portal application that enables companies to post jobs and manage their listings. This repository contains the server-side implementation built with Node.js, Express, and MongoDB.
