@@ -1,6 +1,4 @@
-```
 api_url=https://api.test.tushar.wiki/
-```
 
 # Jobs21 - Job Portal Backend API
 
