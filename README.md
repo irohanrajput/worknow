@@ -1,6 +1,6 @@
-# Jobs21 - Full Stack Job Portal
+# workNow - Full Stack Job Portal
 
-Jobs21 is a comprehensive job portal application that enables companies to post jobs and manage their listings. The platform provides a seamless experience for both employers and job seekers through a modern web interface backed by a robust API.
+workNow is a comprehensive job portal application that enables companies to post jobs and manage their listings. The platform provides a seamless experience for both employers and job seekers through a modern web interface backed by a robust API.
 
 ## 🔗 Quick Links
 - [API Documentation](./server#api-endpoints)
@@ -32,7 +32,7 @@ Jobs21 is a comprehensive job portal application that enables companies to post 
 
 ## Project Structure
 ```
-jobs21/
+workNow/
 ├── client/               # Frontend application
 │   ├── src/             # Source code
 │   ├── public/          # Public assets
@@ -53,8 +53,8 @@ jobs21/
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/irohanrajput/jobs21.git
-cd jobs21
+git clone https://github.com/irohanrajput/workNow.git
+cd workNow
 ```
 
 2. Setup the backend:
@@ -113,5 +113,5 @@ This project is licensed under the ISC License.
 
 ## Acknowledgments
 
-- Thanks to all contributors who have helped shape Jobs21
+- Thanks to all contributors who have helped shape workNow
 - Special thanks to the open-source community for the amazing tools that made this possible
