@@ -21,11 +21,10 @@ export const registerCompany = async (req, res) => {
     );
 
     const verificationLink = `${process.env.CLIENT_URL}/verify-email/${company._id}/${verificationToken}`;
-    console.log(verificationLink);
 
     sendEmail(
       email,
-      "jobs21 account sign-up verification",
+      "workNow account sign-up verification",
       `<h1>Click on the link below to verify your email</h1>
       <a href="${verificationLink}">Verify email</a>`
     );
@@ -85,9 +84,12 @@ export const loginCompany = async (req, res) => {
       expiresIn: "15d",
     });
 
-    res
-      .status(200)
-      .json({ message: "logged in successfully", accessToken: token, companyName: company.name, companyObjectId: company._id });
+    res.status(200).json({
+      message: "logged in successfully",
+      accessToken: token,
+      companyName: company.name,
+      companyObjectId: company._id,
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

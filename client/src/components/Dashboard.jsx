@@ -12,7 +12,6 @@ export default function Dashboard() {
   const loadJobs = async () => {
     try {
       const data = await fetchJobs();
-      console.log(data);
       setJobs(data.jobs);
     } catch (err) {
       setError(err.message);

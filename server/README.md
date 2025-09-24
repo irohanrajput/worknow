@@ -1,10 +1,10 @@
 api_url=https://api.test.tushar.wiki/
 
-# Jobs21 - Job Portal Backend API
+# workNow - Job Portal Backend API
 
-This is the backend server for Jobs21, a full-stack job portal application that enables companies to post jobs and manage their listings. This repository contains the server-side implementation built with Node.js, Express, and MongoDB.
+This is the backend server for workNow, a full-stack job portal application that enables companies to post jobs and manage their listings. This repository contains the server-side implementation built with Node.js, Express, and MongoDB.
 
-🔗 [Frontend Repository](https://github.com/irohanrajput/jobs21)
+🔗 [Frontend Repository](https://github.com/irohanrajput/workNow)
 
 ## Table of Contents
 - [Features](#features)
@@ -68,8 +68,8 @@ server/
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/irohanrajput/jobs21.git
-cd jobs21/server
+git clone https://github.com/irohanrajput/workNow.git
+cd workNow/server
 ```
 
 2. Install dependencies:
@@ -302,3 +302,5 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 
 This project is licensed under the ISC License.
+
+

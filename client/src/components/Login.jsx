@@ -16,7 +16,6 @@ export default function Login() {
     e.preventDefault();
     try {
       const data = await loginCompany(formData);
-      console.log(data);
       localStorage.setItem('token', data.accessToken);
       localStorage.setItem('companyName', data.companyName);
       localStorage.setItem('companyID', data.companyObjectId);

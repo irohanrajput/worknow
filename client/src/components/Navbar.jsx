@@ -14,7 +14,7 @@ export default function Navbar() {
     <nav className="bg-blue-600 text-white shadow-lg">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <Link to="/" className="text-xl font-bold">Job Portal</Link>
+          <Link to="/" className="text-xl font-bold">workNow</Link>
           <div className="flex items-center space-x-4">
             <Link to="/" className="hover:text-blue-200">Jobs</Link>
             {isAuthenticated ? (
